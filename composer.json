@@ -1,6 +1,7 @@
 {
     "name": "whichbrowser/server",
     "description": "Useragent sniffing server for Javascript",
+    "type": "project",
     "keywords": ["useragent","browser"],
     "homepage": "http://whichbrowser.net",
     "license": "MIT",
@@ -14,6 +15,6 @@
     
     "require": {
         "php": ">=5.4.0",
-        "whichbrowser/parser": "1.*"
+        "whichbrowser/parser": "^2.0"
     }
 }
