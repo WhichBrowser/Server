@@ -1,3 +1,13 @@
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define([], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = factory();
+    } else {
+        root.WhichBrowser = factory();
+    }
+}(this, function () {
+
     var WhichBrowser = function() { this.initialize.apply(this, arguments) };
     WhichBrowser.prototype = {
         initialize: function(options) {
@@ -385,3 +395,6 @@
             return version;
         }
     };
+
+    return WhichBrowser;
+}));
