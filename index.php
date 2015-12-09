@@ -115,7 +115,7 @@
 			$local = false;
 			$redirect = false;
 			
-			if ($_SERVER['HTTP_HOST'] == '127.0.0.1:8080') {
+			if ($_SERVER['HTTP_HOST'] == '127.0.0.1:8080' || $_SERVER['HTTP_HOST'] == 'localhost:8080') {
 				$working = true;
 				$local = true;
 			} 
