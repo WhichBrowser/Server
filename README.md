@@ -1,5 +1,4 @@
-WhichBrowser/Server
-===================
+<img src="https://api.whichbrowser.net/whichbrowser.svg" width="400">
 
 This project sets up a server using WhichBrowser that exposes an API for browser detection that can be used by JavaScript in the browser. This project uses the [WhichBrowser/Parser](https://github.com/WhichBrowser/Parser) library for the actual useragent sniffing. For more information see [WhichBrowser/WhichBrowser](https://github.com/WhichBrowser/WhichBrowser).
 
