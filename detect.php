@@ -17,6 +17,5 @@
 	$detected = new WhichBrowser\Parser($options);
 
 
-	$template = file_get_contents(__DIR__ . '/templates/detect.js');
-	echo str_replace('/* $detected->toJavaScript() */', $detected->toJavaScript(), $template);
-	
+	$template = file_get_contents(__DIR__ . '/templates/bundle.js');
+	echo preg_replace('/\_\=[\'"][\'"].*\_\=[\'"][\'"]/s', $detected->toJavaScript(), $template);

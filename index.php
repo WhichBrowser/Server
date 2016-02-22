@@ -123,10 +123,10 @@
 				$base = preg_replace('/index.php.*/', '', $_SERVER['REQUEST_URI']); 
 
 				$result = file_get_contents(($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $base . 'detect.php');
-				if ($result) $working = preg_match('/var WhichBrowser/', $result);
+				if ($result) $working = preg_match('/WhichBrowser/', $result);
 
 				$result = file_get_contents(($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $base . 'detect.js');
-				if ($result) $redirect = preg_match('/var WhichBrowser/', $result);
+				if ($result) $redirect = preg_match('/WhichBrowser/', $result);
 			}
 		?>
 		
