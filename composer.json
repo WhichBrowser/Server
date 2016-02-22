@@ -1,7 +1,5 @@
 {
     "name": "whichbrowser/server",
-    "version": "2.0.8",
-
     "description": "Useragent sniffing server for Javascript",
     "type": "project",
     "keywords": ["useragent","browser"],
@@ -14,7 +12,7 @@
             "role": "Developer"
         }
     ],
-    
+
     "require": {
         "php": ">=5.4.0",
         "ralouphie/getallheaders": "~0.1.7",
