@@ -31,13 +31,18 @@ module.exports = function(grunt) {
             test: {
                 src: ['test/*.js']
             }
+        },
+
+        jshint: {
+            all: ['src/*.js']
         }
     });
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask('build', ['browserify:bundle', 'uglify:bundle']);
-    grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('test', ['jshint', 'mochaTest']);
 };

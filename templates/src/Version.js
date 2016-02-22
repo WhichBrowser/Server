@@ -14,8 +14,8 @@ Version.prototype = {
         this.build = null;
         this.type = '';
 
-        var match;
-        if (match = /([0-9]+)(?:\.([0-9]+))?(?:\.([0-9]+))?(?:\.([0-9]+))?(?:([ab])([0-9]+))?/.exec(this.original)) {
+        var match = /([0-9]+)(?:\.([0-9]+))?(?:\.([0-9]+))?(?:\.([0-9]+))?(?:([ab])([0-9]+))?/.exec(this.original);
+        if (match) {
             if (typeof match[1] != 'undefined') {
                 this.major = match[1];
             }
@@ -62,7 +62,7 @@ Version.prototype = {
             }
 
             if (compare) {
-                var v1 = v2 = '';
+                var v1 = '', v2 = '';
 
                 if (compare.major && this.major) {
                     v1 += this.major;
