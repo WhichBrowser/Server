@@ -14,10 +14,10 @@ WhichBrowser.prototype = {
         };
 
         _='';
-        this.browser = new Browser({ using: new Using() });
-        this.engine = new Engine();
-        this.os = new Os({ family: new Family(), version: new Version() });
-        this.device = new Device();
+        this.browser = new Browser({ using: new Using({}) });
+        this.engine = new Engine({});
+        this.os = new Os({ family: new Family({}), version: new Version({}) });
+        this.device = new Device({});
         this.camouflage = false;
         this.features = [];
         _='';
