@@ -25,10 +25,19 @@ module.exports = function(grunt) {
                     preserveComments: 'some'
                 }
             }
+        },
+
+        mochaTest: {
+            test: {
+                src: ['test/*.js']
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('build', ['browserify:bundle', 'uglify:bundle' ]);
+    grunt.loadNpmTasks('grunt-mocha-test');
+
+    grunt.registerTask('build', ['browserify:bundle', 'uglify:bundle']);
+    grunt.registerTask('test', ['mochaTest']);
 };
