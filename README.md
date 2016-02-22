@@ -1,13 +1,24 @@
 <img src="https://api.whichbrowser.net/whichbrowser.svg" width="400">
 
-This project sets up a server using WhichBrowser that exposes an API for browser detection that can be used by JavaScript in the browser. This project uses the [WhichBrowser/Parser](https://github.com/WhichBrowser/Parser) library for the actual useragent sniffing. For more information see [WhichBrowser/WhichBrowser](https://github.com/WhichBrowser/WhichBrowser).
+This project sets up a server using WhichBrowser that exposes an API for browser detection that can be used by JavaScript in the browser. This project uses the [WhichBrowser/Parser](https://github.com/WhichBrowser/Parser) library for the actual useragent sniffing.
+
+[![Build Status](https://travis-ci.org/WhichBrowser/Server.svg?branch=master)](https://travis-ci.org/WhichBrowser/Server)
+[![License](https://poser.pugx.org/whichbrowser/server/license)](https://packagist.org/packages/whichbrowser/server)
+[![Latest Stable Version](https://poser.pugx.org/whichbrowser/server/v/stable)](https://packagist.org/packages/whichbrowser/server)
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/whichbrowserlib.svg?style=social)](https://twitter.com/whichbrowserlib)
+
+If you are looking for the PHP API for WhichBrowser, please go to the [WhichBrowser/Parser](https://github.com/WhichBrowser/Parser) project.
+
+---
+
 
 
 
 Requirements
 -----------------
 
-The server should be able to handle PHP and included is a `.htaccess` file that instructs the server to use `detect.js` as an alias for `detect.php`. This is not required, but if your server does not support `.htaccess` files you may want to find a way to make your server do the same. Alternatively you could use the `detect.php` directly.
+The server should be able to handle PHP (5.4 or later) and included is a `.htaccess` file that instructs the server to use `detect.js` as an alias for `detect.php`. This is not required, but if your server does not support `.htaccess` files you may want to find a way to make your server do the same. Alternatively you could use the `detect.php` directly.
 
 
 
@@ -18,7 +29,7 @@ You can install WhichBrowser by using Composer - the standard package manager fo
 
     composer create-project whichbrowser/server .
 
-This will install the server in the current directory and install the `whichbrowser/parser` dependancy. You can easily update the parser library by running a simple command. 
+This will install the server in the current directory and install the `whichbrowser/parser` dependancy. You can easily update the parser library by running a simple command.
 
     composer update
 
