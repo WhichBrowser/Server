@@ -5,6 +5,8 @@ Os.prototype = {
         this.family = v.family || null;
         this.alias = v.alias || null;
         this.version = v.version || null;
+        
+        this.hidden = v.hidden || false;
     },
 
     toJSON: function() {
@@ -12,11 +14,14 @@ Os.prototype = {
             name:       this.name,
             family:     this.family,
             alias:      this.alias,
-            version:    (this.version) ? this.version.toJSON() : null
+            version:    (this.version) ? this.version.toJSON() : null,
+            hidden:     this.hidden
         };
     },
 
     toString: function() {
+        if (this.hidden) return '';
+        
         var name = this.alias ? this.alias : (this.name ? this.name : '');
         return (name ? name + (this.version && !this.version.hidden ? ' ' + this.version.toString() : '') : '');
     }

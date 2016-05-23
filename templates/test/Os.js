@@ -53,4 +53,17 @@ describe('Os', function() {
             });
         });
     });
+
+    describe('name = webOS, hidden = true ]', function() {
+        var result = new Os({
+            name: "webOS",
+            hidden: true
+        });
+
+        describe('#toString()', function () {
+            it('should be equal to ""', function () {
+                assert.equal("", result.toString());
+            });
+        });
+    });
 });
