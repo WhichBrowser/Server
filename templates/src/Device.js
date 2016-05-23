@@ -6,6 +6,8 @@ Device.prototype = {
         this.manufacturer = v.manufacturer || null;
         this.model = v.model || null;
         this.series = v.series || null;
+
+        this.hidden = v.hidden || false;
     },
 
     toJSON: function() {
@@ -14,11 +16,14 @@ Device.prototype = {
             identified:     this.identified,
             manufacturer:   this.manufacturer,
             model:          this.model,
-            series:         this.series
+            series:         this.series,
+            hidden:         this.hidden
         };
     },
 
     toString: function() {
+        if (this.hidden) return '';
+
         if (this.identified) {
             var manufacturer = this.manufacturer || '';
             var model = ((this.model || '') + ' ' + (this.series || '')).trim();

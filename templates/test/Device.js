@@ -70,4 +70,19 @@ describe('Device', function() {
             });
         });
     });
+
+    describe('manufacturer = Apple, model = Macintosh, hidden = true', function() {
+        var result = new Device({
+            manufacturer: "Apple",
+            model: "Macintosh",
+            hidden: true
+        });
+
+        describe('#toString()', function () {
+            it('should be equal to ""', function () {
+                assert.equal("", result.toString());
+            });
+        });
+    });
+
 });
