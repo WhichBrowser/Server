@@ -58,4 +58,16 @@ describe('Browser', function() {
             });
         });
     });
-});
+
+    describe('using = [ name = BlackBerry Browser, hidden = true ]', function() {
+        var result = new Browser({
+            name: "BlackBerry Browser",
+            hidden: true
+        });
+
+        describe('#toString()', function () {
+            it('should be equal to ""', function () {
+                assert.equal("", result.toString());
+            });
+        });
+    });});

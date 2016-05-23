@@ -26,6 +26,8 @@ Browser.prototype = {
     },
 
     toString: function() {
+        if (this.hidden) return '';
+
         var name = this.alias ? this.alias : (this.name ? this.name : '');
         if (name !== '') return (name ? name + (this.channel ? ' ' + this.channel : '') + (this.version && !this.version.hidden ? ' ' + this.version.toString() : '') : '');
         if (this.using) return this.using.toString();
