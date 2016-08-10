@@ -1,3 +1,5 @@
+require('./Polyfills');
+
 var Browser = require('./Browser');
 var Engine = require('./Engine');
 var Os = require('./Os');
