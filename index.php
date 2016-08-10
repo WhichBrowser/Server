@@ -180,8 +180,7 @@
 										"<hr>" +
 									  	"\"You are using \" + result\n<span>// You are using " + result + "</span>" +
 									  	"<hr>" +
-									  	"JSON.stringify(result)\n<span>// " + JSON.stringify(result) + "</span>" +
-									  	"<hr>" +
+										( typeof JSON != 'undefined' ? "JSON.stringify(result)\n<span>// " + JSON.stringify(result) + "</span><hr>" : "" ) +
 									  	"result.isType('desktop')\n<span>// " + result.isType('desktop') + "</span>\n" +
 										"result.isType('mobile', 'tablet', 'media')\n<span>// " + result.isType('mobile', 'tablet', 'media') + "</span>\n" +
 										"result.isBrowser('Chrome', '>', '28')\n<span>// " + result.isBrowser('Chrome', '>', '28') + "</span>\n" +
