@@ -1,6 +1,12 @@
 <img src="https://api.whichbrowser.net/whichbrowser.svg" width="400">
 
-This project sets up a server using WhichBrowser that exposes an API for browser detection that can be used by JavaScript in the browser. This project uses the [WhichBrowser/Parser](https://github.com/WhichBrowser/Parser) library for the actual useragent sniffing.
+This is an extremely complicated and almost completely useless browser sniffing library. Useless because you shouldn't use browser sniffing. So stop right now and go read something about feature detecting instead. I'm serious. Go away. You'll thank me later.
+
+
+WhichBrowser/Server
+===================
+
+This project sets up a server using WhichBrowser that exposes an API for browser detection that can be used by JavaScript in the browser. This project uses the [WhichBrowser/Parser-PHP](https://github.com/WhichBrowser/Parser-PHP) library for the actual useragent sniffing.
 
 [![Build Status](https://travis-ci.org/WhichBrowser/Server.svg?branch=master)](https://travis-ci.org/WhichBrowser/Server)
 [![License](https://poser.pugx.org/whichbrowser/server/license)](https://packagist.org/packages/whichbrowser/server)
@@ -8,7 +14,13 @@ This project sets up a server using WhichBrowser that exposes an API for browser
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/whichbrowserlib.svg?style=social)](https://twitter.com/whichbrowserlib)
 
-If you are looking for the PHP API for WhichBrowser, please go to the [WhichBrowser/Parser](https://github.com/WhichBrowser/Parser) project.
+Also available:
+
+- [WhichBrowser/Parser-PHP](https://github.com/WhichBrowser/Parser-PHP)<br>
+  A PHP version of WhichBrowser for use on the server
+
+- [WhichBrowser/Parser-JavaScript](https://github.com/WhichBrowser/Parser-JavaScript)<br>
+  A JavaScript version of WhichBrowser for use with Node.js on the server
 
 ---
 
@@ -87,10 +99,10 @@ Another possiblity is to query the object:
     result.isType('desktop')
     // true
 
-    result.isType('mobile', 'tablet', 'media')  
+    result.isType('mobile', 'tablet', 'media')
     // false
 
-    result.isBrowser('Maxthon', '<', '4.0.5')  
+    result.isBrowser('Maxthon', '<', '4.0.5')
     // false
 
     result.isOs('iOS', '>=', '5')
@@ -103,7 +115,7 @@ Another possiblity is to query the object:
 You can also access these properties directly:
 
     result.browser
-    // Chrome 27  
+    // Chrome 27
 
     result.engine
     // Blink
@@ -151,27 +163,27 @@ After a new `WhichBrowser` object is created, it contains a number of properties
 
 **Properties:**
 
-* `browser`  
+* `browser`
   an object that contains information about the browser itself
-* `engine`  
+* `engine`
   an object that contains information about the rendering engine
-* `os`  
+* `os`
   an object that contains information about the operating system
-* `device`  
+* `device`
   an object that contains information about the device
 
 **Functions:**
 
-`isType(type [,type [,type [,type]]])`  
+`isType(type [,type [,type [,type]]])`
 If a single argument is used, the function returns `true` if the argument matches the `type` propery of `device` obejct. It can use multiple arguments in which case the function returns `true` if one of the arguments matches. If none of the arguments matches, it returns `false`
 
-`isBrowser(name [, comparison, version])`  
+`isBrowser(name [, comparison, version])`
 Is used to query the `name` and `version` property of the `browser` object. The funcion can contain a single argument to a simple comparison based on `name`, or three arguments to compare both `name` and `version`. The first argument always contains the name of the browser. The second arguments is a string that can container either `<`, `<=`, `=`, `=>` or `>`. The third is an integer, float or string that contains the version. You can use versions like `10`, `10.7` or `'10.7.4'`. For more information about how version comparisons are performed, please see the `is()` function of the `Version` object.
 
-`isEngine(name [, comparison, version])`  
+`isEngine(name [, comparison, version])`
 Is used to query the `name` and `version` property of the `engine` object. This function works in exactly the same way as `isBrowser`.
 
-`isOs(name [, comparison, version])`  
+`isOs(name [, comparison, version])`
 Is used to query the `name` and `version` property of the `os` object. This function works in exactly the same way as `isBrowser`.
 
 
@@ -181,17 +193,17 @@ The `Browser` object is used for the `browser` property of the main `WhichBrowse
 
 **Properties:**
 
-* `name`  
+* `name`
   a string containing the name of the browser
-* `version`  
+* `version`
   a version object containing information about the version of the browser
-* `stock`  
+* `stock`
   a boolean, true if the browser is the default browser of the operating system, false otherwise
-* `channel`  
+* `channel`
   a string containing the distribution channel, ie. 'Nightly' or 'Next'.
-* `mode`  
+* `mode`
   a string that can contain the operating mode of the browser, ie. 'proxy'.
-* `hidden`  
+* `hidden`
   a boolean that is true if the browser does not have a name and is the default of the operating system.
 
 
@@ -201,9 +213,9 @@ The `Engine` object is used for the `engine` property of the main `WhichBrowser`
 
 **Properties:**
 
-* `name`  
+* `name`
   a string containing the name of the rendering engine
-* `version`  
+* `version`
   a version object containing information about the version of the rendering engine
 
 
@@ -213,9 +225,9 @@ The `Os` object is used for the `os` property of the main `WhichBrowser` object 
 
 **Properties:**
 
-* `name`  
+* `name`
   a string containing the name of the operating system
-* `version`  
+* `version`
   a version object containing information about the version of the operating system
 
 
@@ -225,13 +237,13 @@ The `Device` object is used for the `device` property of the main `WhichBrowser`
 
 **Properties:**
 
-* `type`  
+* `type`
   a string containing the type of the browser.
-* `identified`  
+* `identified`
   a boolean that is true if the device has been positively identified.
-* `manufacturer`  
+* `manufacturer`
   a string containing the manufacturer of the device, ie. 'Apple' or 'Samsung'.
-* `model`  
+* `model`
   as string containing the model of the device, ie. 'iPhone' or 'Galaxy S4'.
 
 The `type` property can contain any value from the following list:
@@ -260,31 +272,31 @@ The `Version` object is used for the `version` property of the `browser`, `engin
 
 **Properties:**
 
-* `original`  
+* `original`
   a string containing the original version number.
-* `alias`  
+* `alias`
   a string containing an alias for the version number, ie. 'XP' for Windows '5.1'.
-* `details`  
+* `details`
   an integer containing the number of digits of the version number that should be printed.
-* `major`  
+* `major`
   an integer containing the major version number.
-* `minor`  
+* `minor`
   an integer containing the minor version number.
-* `type`  
+* `type`
   a string containing a type indicator, ie. 'beta' or 'alpha'.
 
 **Functions:**
 
-`is(version)` or `is(comparison, version)`  
+`is(version)` or `is(comparison, version)`
 Using this function it is easy to compare a version to another version. If you specify only one argument, this function will return if the versions are the same. You can also specify two arguments, in that case the first argument contains the comparison operator, such as `<`, `<=`, `=`, `=>` or `>`. The second argument is the version you want to compare it to. You can use versions like `10`, `10.7` or `'10.7.4'`, but be aware that `10` is not the same as `10.0`. For example if our OS version is `10.7.4`:
 
-    result.os.version.is('10.7.4')  
+    result.os.version.is('10.7.4')
     // true
 
-    result.os.version.is('10.7')  
+    result.os.version.is('10.7')
     // true
 
-    result.os.version.is('10')  
+    result.os.version.is('10')
     // true
 
     result.os.version.is('10.0')
