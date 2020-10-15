@@ -122,10 +122,10 @@
 			else {
 				$base = preg_replace('/index.php.*/', '', $_SERVER['REQUEST_URI']); 
 
-				$result = file_get_contents(($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $base . 'detect.php');
+				$result = file_get_contents(($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $base . 'detect.php');
 				if ($result) $working = preg_match('/WhichBrowser/', $result);
 
-				$result = file_get_contents(($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $base . 'detect.js');
+				$result = file_get_contents(($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $base . 'detect.js');
 				if ($result) $redirect = preg_match('/WhichBrowser/', $result);
 			}
 		?>
@@ -144,7 +144,7 @@
     e|=(e&16&&({}.toString).toString().indexOf("\n")===-1)?32:0;p.push('e='+e);f|='sandbox' in d.createElement('iframe')?1:0;f|='WebSocket' in w?2:0;
     f|=w.Worker?4:0;f|=w.applicationCache?8:0;f|=w.history && history.pushState?16:0;f|=d.documentElement.webkitRequestFullScreen?32:0;f|='FileReader' in w?64:0;
     p.push('f='+f);p.push('r='+Math.random().toString(36).substring(7));p.push('w='+screen.width);p.push('h='+screen.height);var s=d.createElement('script');
-    s.src='//<?php echo $_SERVER['HTTP_HOST'];?><?php echo $local ? '' : '/whichbrowser'; ?>/detect.<?php echo $redirect ? 'js' : 'php'; ?>?' + p.join('&');d.getElementsByTagName('head')[0].appendChild(s);})();
+    s.src='//<?php echo $_SERVER['SERVER_NAME'];?><?php echo $local ? '' : '/whichbrowser'; ?>/detect.<?php echo $redirect ? 'js' : 'php'; ?>?' + p.join('&');d.getElementsByTagName('head')[0].appendChild(s);})();
 &lt;/script&gt;</pre>
 			
 			<p>
