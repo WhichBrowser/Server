@@ -120,7 +120,8 @@
 				$local = true;
 			} 
 			else {
-				$base = preg_replace('/index.php.*/', '', $_SERVER['REQUEST_URI']); 
+                $raw_base = explode('?', $_SERVER['REQUEST_URI']);
+                $base = preg_replace('/index.php.*/', '', $raw_base[0]);
 
 				$result = file_get_contents(($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $base . 'detect.php');
 				if ($result) $working = preg_match('/WhichBrowser/', $result);
